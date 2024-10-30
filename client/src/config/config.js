@@ -21,7 +21,7 @@ const mode = production;  // Change this to 'production' for live deployment
 let base_url = '';
 
 if (mode === production) {
-    base_url = "https://news-portal-admin-git-main-jihad7518s-projects.vercel.app/";  // Use production server URL
+    base_url = "https://news-portal-admin-qqkw5uk24-jihad7518s-projects.vercel.app";  // Use production server URL
 } else {
     base_url = 'http://localhost:5000';  // Use local server URL for development
 }
