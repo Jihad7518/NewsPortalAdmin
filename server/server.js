@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // CORS configuration
 const allowedOrigins = [
-    "https://news-portal-admin.vercel.app",
+    "https://news-portal-admin-git-main-jihad7518s-projects.vercel.app",
     "https://news-portal-admin-hjo9.vercel.app"
 ];
 
