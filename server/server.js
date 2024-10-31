@@ -50,15 +50,18 @@ app.use('/api/advertisement', advertisementRoutes);
 app.use('/api/auth', authRoutes); // Explicitly define the API prefix
 app.use('/api/news', newsRoute); // Explicitly define the API prefix
 
-// Basic root route
-app.get('/', (req, res) => res.send('Hello Worldddddddddddd!'));
 
 // Database connection
 db_connect();
 
+// Basic root route
+app.get('/', (req, res) => res.send('Hello Worldddddddddddd!'));
+
 // Start server
 const port = process.env.PORT || 5000; // Fallback to port 5000 if PORT is not defined
 app.listen(port, () => console.log(`Server is running on port ${port}!`));
+
+
 
 
 
