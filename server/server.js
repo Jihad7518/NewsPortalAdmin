@@ -12,13 +12,14 @@ dotenv.config()
 app.use(body_parser.json())
 
 if (process.env.mode === 'production') {
-    app.use(cors(
-        origin: ["https://news-portal-admin.vercel.app", "https://news-portal-admin-hjo9.vercel.app"]
-    ))
+    app.use(cors({
+        origin: ["https://news-portal-admin.vercel.app", "https://news-portal-admin-hjo9.vercel.app"],
+        credentials: true
+    }));
 } else {
     app.use(cors({
         origin: ["http://localhost:5173", "http://localhost:3000"]
-    }))
+    }));
 }
 
 
