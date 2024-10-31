@@ -51,7 +51,7 @@ app.use('/api/auth', authRoutes); // Explicitly define the API prefix
 app.use('/api/news', newsRoute); // Explicitly define the API prefix
 
 // Basic root route
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello Worldddddddddddd!'));
 
 // Database connection
 db_connect();
