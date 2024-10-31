@@ -275,8 +275,8 @@ export default Home;
 //           </div>
 //         </div>
 //       </main>
-      <Footer />
-    </div>
-  );
-};
-export default Home;
+//       <Footer />
+//     </div>
+//   );
+// };
+// export default Home;
