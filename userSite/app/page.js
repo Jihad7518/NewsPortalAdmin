@@ -31,6 +31,16 @@ const Home = async () => {
     news = data?.news || {}; // Default to empty object if `news` key is missing
   } catch (error) {
     console.error("Error fetching news data:", error);
+    // Set default structure for categories in case of API failure
+    news = {
+      Education: [],
+      Technology: [],
+      Sports: [],
+      Health: [],
+      Travel: [],
+      Politics: [],
+      International: [],
+    };
   }
 
   return (
@@ -78,13 +88,13 @@ const Home = async () => {
               <div className="flex flex-wrap">
                 <div className="w-full lg:w-4/12">
                   <div className="pr-2">
-                    <DetailsNewsCol news={news["Education"] || []} category="Politics" />
+                    <DetailsNewsCol news={news["Politics"] || []} category="Politics" />
                   </div>
                 </div>
                 <div className="w-full lg:w-8/12">
                   <div className="pl-2">
                     <DetailsNewsRow news={news["Travel"] || []} category="Travel" type="details-news" />
-                    <DetailsNews news={news["Education"] || []} category="International" />
+                    <DetailsNews news={news["International"] || []} category="International" />
                   </div>
                 </div>
               </div>
