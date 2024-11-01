@@ -13,7 +13,7 @@ router.post('/api/images/add', middleware.auth, newsController.add_images)
 router.get('/api/news', middleware.auth, newsController.get_dashboard_news)
 router.get('/api/news/:news_id', middleware.auth, newsController.get_dashboard_single_news)
 
-router.get('/api/news', middleware.auth, newsController.get_dashboard_news); 
+// router.get('/api/news', middleware.auth, newsController.get_dashboard_news); 
 router.get('/api/news/writer/:writerId', middleware.auth, newsController.get_news_by_writer);
 
 
