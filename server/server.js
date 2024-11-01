@@ -13,7 +13,8 @@ app.use(body_parser.json());
 const allowedOrigins = [
     "https://news-portal-admin.vercel.app",
     "https://news-portal-admin-hjo9.vercel.app",
-    "https://news-portal-user-site.vercel.app"
+    "https://news-portal-user-site.vercel.app",
+    "https://daily-priyo-bangladesh.vercel.app"
 ];
 
 if (process.env.mode === 'production') {
