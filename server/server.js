@@ -1,19 +1,24 @@
-const express = require('express')
-const app = express()
-const dotenv = require('dotenv')
-const body_parser = require('body-parser')
-const cors = require('cors')
-const db_connect = require('./utils/db')
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv');
+const body_parser = require('body-parser');
+const cors = require('cors');
+const db_connect = require('./utils/db');
 const advertisementRoutes = require('./routes/advertisement');
 
 dotenv.config();
 
-
 app.use(body_parser.json());
+
+const allowedOrigins = [
+    "https://news-portal-admin.vercel.app",
+    "https://news-portal-admin-hjo9.vercel.app",
+    "https://news-portal-user-site.vercel.app"
+];
 
 if (process.env.mode === 'production') {
     app.use(cors({
-        origin: ["https://news-portal-admin.vercel.app", "https://news-portal-admin-hjo9.vercel.app"],
+        origin: allowedOrigins,
         credentials: true
     }));
 } else {
@@ -22,19 +27,58 @@ if (process.env.mode === 'production') {
     }));
 }
 
-
+// Routes setup
 app.use('/api/advertisement', advertisementRoutes);
+app.use('/', require('./routes/authRoutes'));
+app.use('/', require('./routes/newsRoute'));
+
+app.get('/', (req, res) => res.send('Hello World!'));
+
+const port = process.env.port;
+
+db_connect();
+
+app.listen(port, () => console.log(`Server is running on port ${port}!`));
 
 
-app.use('/', require('./routes/authRoutes'))
-app.use('/', require('./routes/newsRoute'))
-app.get('/', (req, res) => res.send('Hello World!'))
 
-const port = process.env.port
+// const express = require('express')
+// const app = express()
+// const dotenv = require('dotenv')
+// const body_parser = require('body-parser')
+// const cors = require('cors')
+// const db_connect = require('./utils/db')
+// const advertisementRoutes = require('./routes/advertisement');
 
-db_connect()
+// dotenv.config();
 
-app.listen(port, () => console.log(`server is running on port ${port}!`))
+
+// app.use(body_parser.json());
+
+// if (process.env.mode === 'production') {
+//     app.use(cors({
+//         origin: ["https://news-portal-admin.vercel.app", "https://news-portal-admin-hjo9.vercel.app"],
+//         credentials: true
+//     }));
+// } else {
+//     app.use(cors({
+//         origin: "*"
+//     }));
+// }
+
+
+// app.use('/api/advertisement', advertisementRoutes);
+
+
+// app.use('/', require('./routes/authRoutes'))
+// app.use('/', require('./routes/newsRoute'))
+// app.get('/', (req, res) => res.send('Hello World!'))
+
+// const port = process.env.port
+
+// db_connect()
+
+// app.listen(port, () => console.log(`server is running on port ${port}!`))
 
 
 // const express = require('express');
