@@ -6,10 +6,10 @@ const cors = require('cors')
 const db_connect = require('./utils/db')
 const advertisementRoutes = require('./routes/advertisement');
 
-dotenv.config()
+dotenv.config();
 
 
-app.use(body_parser.json())
+app.use(body_parser.json());
 
 if (process.env.mode === 'production') {
     app.use(cors({
@@ -18,7 +18,7 @@ if (process.env.mode === 'production') {
     }));
 } else {
     app.use(cors({
-        origin: ["http://localhost:5173", "http://localhost:3000"]
+        origin: "*"
     }));
 }
 
